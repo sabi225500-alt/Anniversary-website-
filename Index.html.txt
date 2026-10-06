@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sachu ♥ Anjumma</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0609;
+    color: white;
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 30px;
+    background:
+        linear-gradient(
+            rgba(8,3,6,.35),
+            rgba(8,3,6,.9)
+        ),
+        url("YOUR_FIRST_PHOTO.jpg")
+        center/cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    color: #e7c58a;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.heart {
+    font-size: 120px;
+    color: #ff557d;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.names {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(40px, 8vw, 80px);
+}
+
+.names span {
+    color: #ff557d;
+}
+
+.date {
+    margin-top: 15px;
+    color: #ffb5c6;
+    letter-spacing: 5px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    border: 1px solid #ff7192;
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.button:hover {
+    background: #ff557d;
+}
+
+section {
+    padding: 100px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 65px;
+    font-weight: 500;
+}
+
+.section-title p {
+    color: #cbb9c0;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* STORY */
+
+.story {
+    max-width: 900px;
+    margin: auto;
+}
+
+.story-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.story-card h3 {
+    color: #ffb5c6;
+    font-size: 32px;
+}
+
+.story-card p {
+    margin-top: 10px;
+    color: #d8cbd0;
+    line-height: 1.9;
+}
+
+/* GALLERY */
+
+.gallery {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.photo img {
+    width: 100%;
+    display: block;
+    transition: .7s;
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 25px 20px;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+}
+
+.caption h3 {
+    font-size: 28px;
+    color: #ffb5c6;
+}
+
+.caption p {
+    font-size: 13px;
+    color: #eee;
+}
+
+/* LETTER */
+
+.letter {
+    max-width: 850px;
+    margin: auto;
+    background: #fff6f2;
+    color: #3a2028;
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 30px 100px rgba(0,0,0,.5);
+}
+
+.letter h2 {
+    font-size: 55px;
+}
+
+.letter p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+/* MUSIC */
+
+.music {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.05);
+}
+
+.music h2 {
+    font-size: 45px;
+}
+
+.music p {
+    color: #cbb9c0;
+    margin: 15px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* FINAL */
+
+.final {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,85,125,.2),
+            transparent 60%
+        );
+}
+
+.final h2 {
+    font-size: clamp(60px,10vw,130px);
+    line-height: .85;
+}
+
+.final-message {
+    margin-top: 40px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    color: #ffb5c6;
+}
+
+.final p {
+    max-width: 650px;
+    margin: 25px auto;
+    color: #cbb9c0;
+    line-height: 1.8;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff557d;
+    pointer-events: none;
+    animation: float 8s linear forwards;
+    z-index: 100;
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    section {
+        padding: 70px 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 35px 25px;
+    }
+
+    .letter p {
+        font-size: 21px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="small-title">
+A little universe made for two
+</div>
+
+<div class="heart">
+♥
+</div>
+
+<div class="names">
+Sachu <span>♥</span> Anjumma
+</div>
+
+<div class="date">
+September 29 · Our Day
+</div>
+
+<a href="#story" class="button">
+Enter Our Story ↓
+</a>
+
+</div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section id="story">
+
+<div class="section-title">
+
+<div class="small-title">
+Once Upon A Time
+</div>
+
+<h2>How I Found You</h2>
+
+<p>
+Some love stories begin with a plan.
+Ours began with a glance,
+a conversation,
+and a feeling neither of us knew
+would become this important.
+</p>
+
+</div>
+
+
+<div class="story">
+
+<div class="story-card">
+
+<h3>It started with your eyes.</h3>
+
+<p>
+At a program in my friend's college,
+I saw you for the first time.
+I didn't know your story,
+your dreams,
+or where this moment would take us.
+
+But I noticed your eyes.
+
+Then I noticed the way you talked,
+the way you carried yourself,
+and that little something in your vibe
+that felt strangely familiar.
+
+I liked you before I even had a reason
+to explain why.
+</p>
+
+</div>
+
+
+<div class="story-card">
+
+<h3>Then came the conversations.</h3>
+
+<p>
+We met.
+We talked.
+Slowly, the distance between two strangers
+became the comfort of two friends.
+
+Our conversations became something
+I looked forward to.
+
+Somewhere between the jokes,
+the teasing,
+the quiet moments,
+and the endless little talks,
+you became more than someone I simply liked.
+</p>
+
+</div>
+
+
+<div class="story-card">
+
+<h3>Friendship quietly became love.</h3>
+
+<p>
+There wasn't a dramatic moment
+when the whole world stopped.
+
+It happened more beautifully than that.
+
+I just started caring a little more,
+missing you a little more,
+smiling a little more because of you.
+
+And one day,
+we were no longer just friends.
+
+We were us.
+</p>
+
+</div>
+
+
+<div class="story-card">
+
+<h3>Now, you are my favourite chapter.</h3>
+
+<p>
+We've collected memories that photographs
+can only partly capture.
+
+The long looks.
+The comfortable silence.
+The laughter that comes from absolutely nothing.
+The closeness of simply being together.
+
+I don't want a perfect love story.
+
+I want ours.
+
+Real.
+Warm.
+Imperfect.
+Intimate.
+
+And ours for as long as life lets me
+hold your hand.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PHOTO GALLERY -->
+
+<section>
+
+<div class="section-title">
+
+<div class="small-title">
+Our Little Archive
+</div>
+
+<h2>Moments I Want Forever</h2>
+
+<p>
+Every photograph is a small proof that
+somewhere, somehow,
+we were exactly where we were supposed to be.
+</p>
+
+</div>
+
+
+<div class="gallery">
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_1.jpg">
+
+<div class="caption">
+
+<h3>The First Look</h3>
+
+<p>
+The moment I first noticed those eyes.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_2.jpg">
+
+<div class="caption">
+
+<h3>Somewhere Between Hello And Always</h3>
+
+<p>
+Friendship slowly became something much more.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_3.jpg">
+
+<div class="caption">
+
+<h3>Your Smile</h3>
+
+<p>
+One of the things my heart kept coming back to.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_4.jpg">
+
+<div class="caption">
+
+<h3>Closer Than Words</h3>
+
+<p>
+Some moments don't need an explanation.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_5.jpg">
+
+<div class="caption">
+
+<h3>Our Little World</h3>
+
+<p>
+Two people slowly creating a world of their own.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img src="YOUR_PHOTO_6.jpg">
+
+<div class="caption">
+
+<h3>You, Exactly As You Are</h3>
+
+<p>
+I fell for everything that makes you you.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section>
+
+<div class="section-title">
+
+<div class="small-title">
+From My Heart To Yours
+</div>
+
+<h2>A Letter For You</h2>
+
+</div>
+
+
+<div class="letter">
+
+<h2>My Anjumma,</h2>
+
+<p>
+I don't know what the future has written for us,
+but I know what I want.
+</p>
+
+<p>
+I want more mornings with you,
+more silly conversations,
+more journeys,
+more photographs,
+more hugs that make the whole world feel quiet,
+and more ordinary days that somehow become
+unforgettable because you are there.
+</p>
+
+<p>
+If I could return to the beginning,
+I would still look at you.
+
+I would still start that conversation.
+
+I would still choose the friendship
+that led us here.
+
+And after knowing everything I know now,
+I would choose you even more completely.
+</p>
+
+<p>
+You are not just a beautiful part of my life.
+
+You are the person I want beside me
+while life happens.
+
+Through the exciting days,
+the difficult ones,
+the quiet ones,
+and every little moment between.
+</p>
+
+<p>
+Forever yours — Sachu ♥
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section>
+
+<div class="section-title">
+
+<div class="small-title">
+Press Play
+</div>
+
+<h2>Our Song</h2>
+
+</div>
+
+
+<div class="music">
+
+<h2>Until I Found You</h2>
+
+<p>
+Choose your legally obtained audio file below.
+</p>
+
+<input
+type="file"
+accept="audio/*"
+id="song"
+>
+
+<audio
+id="audio"
+controls
+loop>
+</audio>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+<div>
+
+<div class="small-title">
+VENI · VIDI · VICI
+</div>
+
+<h2>
+We Came.<br>
+We Saw.<br>
+We Loved.
+</h2>
+
+<div class="final-message">
+I want you till my end. ♥
+</div>
+
+<p>
+I love you till my end.
+
+And I never want to forget the day
+our story began.
+
+September 29.
+
+Whatever comes next,
+I want to keep writing it with you.
+</p>
+
+<div class="small-title">
+SACHU ♥ ANJUMMA · SEPTEMBER 29 · ALWAYS
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* MUSIC */
+
+const song =
+document.getElementById("song");
+
+const audio =
+document.getElementById("audio");
+
+song.addEventListener("change", function(){
+
+const file = this.files[0];
+
+if(file){
+
+audio.src =
+URL.createObjectURL(file);
+
+audio.play();
+
+}
+
+});
+
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.className =
+"floating-heart";
+
+heart.innerHTML =
+"♥";
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.fontSize =
+(12 + Math.random()*25) + "px";
+
+heart.style.animationDuration =
+(5 + Math.random()*5) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(
+()=>heart.remove(),
+10000
+);
+
+}
+
+setInterval(createHeart,600);
+
+</script>
+
+</body>
+</html>
